@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Fujian Tourist Scenic Spot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/mapbox-gl-language"></script>
+
+</head>
+
+<body>
+  <div id="map"></div>
+  <button id="reset-button">↻</button>
+  <div id="console">
+    <h1>Fujian Tourist Scenic Spot</h1>
+    <p>
+      Data sources: <a href="https://wlt.fujian.gov.cn/zwgk/sjfb/cgcx/" target="_blank" id="data-link">check</a>
+      Fujian Provincial Department of Culture and Tourism
+    </p>
+
+    <div class="session">
+      <h2>Select Class A Level</h2>
+      <select id="class-dropdown">
+        <option value="all">Show All</option>
+        <option value="5A">5A</option>
+        <option value="4A">4A</option>
+        <option value="3A">3A</option>
+        <option value="2A">2A</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="ui-container">
+    <div id="time-box"></div>
+    <div id="search-box">
+      <input type="text" id="search-input" placeholder="Search Scenic Spot..." oninput="updateSearchResults()">
+      <ul id="search-results"></ul>
+    </div>
+  </div>
+
+  <div id="scenic-container">
+    <div id="scenic-toggle">▶</div>
+    <div id="scenic-content">
+      <h3>Scenic Spots</h3>
+      <ul id="scenic-list"></ul>
+    </div>
+  </div>
+
+  <div id="navigation-container">
+    <input type="text" id="start-input" placeholder="Enter start location...">
+    <input type="text" id="end-input" placeholder="Enter destination...">
+    <button id="get-route">Get Route</button>
+    <button id="clear-route">Clear</button>
+    <ul id="start-results" class="autocomplete-results"></ul>
+    <ul id="end-results" class="autocomplete-results"></ul>
+  </div>
+  <div class="mapboxgl-ctrl mapboxgl-ctrl-group">
+    <button id="toggle-spots">Hide Spots</button>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
